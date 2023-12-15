@@ -8,7 +8,7 @@ function App() {
   const [notes, setNotes] = useState([]);
 
   // Update with Heroku app's URL
-  const baseURL = "https://your-heroku-app.herokuapp.com/api/notes";
+  const baseURL = "https://ahmed-keeper-app-268db86f94df.herokuapp.com/api/notes";
 
   // Fetch notes from the backend
   useEffect(() => {

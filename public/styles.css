@@ -112,7 +112,7 @@ form button {
 }
 
 .google-sign-in-btn {
-  background-color: #4285F4; /* Google's blue color */
+  background-color: #FFD700; /* Google's blue color */
   color: white;
   padding: 10px 15px;
   border: none;
@@ -122,6 +122,16 @@ form button {
   transition: background-color 0.3s;
 }
 
+.sign-in-container {
+  width: 480px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
+  text-align: center; /* Center the button inside the container */
+}
+
 .google-sign-in-btn:hover {
-  background-color: #357ae8; /* Slightly darker blue on hover */
+  background-color: #ffbf00; /* Slightly darker blue on hover */
 }

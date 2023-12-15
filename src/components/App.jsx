@@ -72,8 +72,9 @@ function App() {
 
   return (
     <div>
-      <Header />
-      <CreateArea onAdd={addNote} />
+      <Header user={user} /> {/* Pass user as a prop */}
+      {!user && <SignInWithGoogle />} {/* Render only if user is not signed in */}
+      {user && <CreateArea onAdd={addNote} />} {/* Render only if user is signed in */}
       {notes.map((noteItem, index) => {
         return (
           <Note

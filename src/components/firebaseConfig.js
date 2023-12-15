@@ -1,14 +1,17 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC_AxXmk2kxsbhBq1fDWAqvGnKo0JnzDhA",
   authDomain: "keeper-app-1d039.firebaseapp.com",
   projectId: "keeper-app-1d039",
-  // ... other config values if available ...
   appId: "832027118818-se3h2p6kglvb2kd58s7l6pn6728c97qu.apps.googleusercontent.com"
 };
 
-firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
-export default firebase;
+// Get a reference to the Firebase auth object
+const auth = getAuth(app);
+
+export { auth, app };

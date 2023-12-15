@@ -1,10 +1,12 @@
 import React from 'react';
-import firebase from './firebaseConfig';
+import { auth } from './firebaseConfig';
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+
 
 export function SignInWithGoogle() {
   const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then((result) => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider).then((result) => {
       // User signed in
     }).catch((error) => {
       console.error("Error signing in with Google:", error);

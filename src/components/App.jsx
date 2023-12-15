@@ -1,25 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
-import defaultNotes from "../notes";
 
 function App() {
-  const [notes, setNotes] = useState(defaultNotes);
+  const [notes, setNotes] = useState([]);
 
+  const baseURL = "https://ahmed-keeper-app-backend.glitch.me/api/notes";
+
+  // Fetch notes from the backend
+  useEffect(() => {
+    fetch(baseURL)
+      .then((response) => response.json())
+      .then((data) => setNotes(data))
+      .catch((error) => console.error("Error fetching notes:", error));
+  }, []);
+
+  // Add a new note
   function addNote(newNote) {
-    setNotes((prevNotes) => {
-      return [...prevNotes, newNote];
-    });
+    fetch(baseURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newNote),
+    })
+      .then(() => {
+        setNotes((prevNotes) => [...prevNotes, newNote]);
+      })
+      .catch((error) => console.error("Error adding note:", error));
   }
 
+  // Delete a note
   function deleteNote(id) {
-    setNotes((prevNotes) => {
-      return prevNotes.filter((noteItem, index) => {
-        return index !== id;
-      });
-    });
+    fetch(`${baseURL}/${id}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        setNotes((prevNotes) => prevNotes.filter((note) => note._id !== id));
+      })
+      .catch((error) => console.error("Error deleting note:", error));
   }
 
   return (
@@ -29,8 +48,8 @@ function App() {
       {notes.map((noteItem, index) => {
         return (
           <Note
-            key={index}
-            id={index}
+            key={noteItem._id || index} // Use _id if available
+            id={noteItem._id}
             title={noteItem.title}
             content={noteItem.content}
             onDelete={deleteNote}

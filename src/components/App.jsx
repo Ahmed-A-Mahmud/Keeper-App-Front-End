@@ -7,7 +7,8 @@ import CreateArea from "./CreateArea";
 function App() {
   const [notes, setNotes] = useState([]);
 
-  const baseURL = "https://ahmed-keeper-app-backend.glitch.me/api/notes";
+  // Update with Heroku app's URL
+  const baseURL = "https://your-heroku-app.herokuapp.com/api/notes";
 
   // Fetch notes from the backend
   useEffect(() => {

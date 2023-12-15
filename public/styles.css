@@ -100,3 +100,13 @@ form button {
   cursor: pointer;
   outline: none;
 }
+
+.inputError::placeholder {
+  color: red;
+  opacity: 1; /* Override any browser-specific settings */
+}
+
+.textareaError::placeholder {
+  color: red;
+  opacity: 1; /* Override any browser-specific settings */
+}

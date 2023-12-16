@@ -24,7 +24,7 @@ The Keeper App is a note-taking application that allows users to add, delete, an
 
 1. **Initial React Setup**: Creation of a new React application with `App.jsx`, `Header.jsx`, `Footer.jsx`, and `Note.jsx` components.
 2. **Note Management**: Inclusion of `notes.js` for default notes and implementation of add/delete functionalities.
-3. **Backend Connection**: Connection to Node.js backend server with RESTful API to save, fetch, and delete notes from MongoDB.
+3. **Backend Connection**: Connection to Node.js backend server with RESTful API to save, fetch, and delete notes from MongoDB. Declusion of `note.js` due to backend implementation.
 3. **Firebase Integration**: Implementation of Firebase Authentication for user sign-in functionality.
 4. **UI Enhancement**: Styling updates for a more user-friendly interface, including a responsive design for the sign-in and sign-out buttons.
 
